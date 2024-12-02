@@ -2,15 +2,29 @@ import random
 
 word_list = ["banana", "apple", "mango", "pineapple", "orange"]
 
-print(word_list)
 
-word = random.choice(word_list)
+def play_hangman():
 
-print(word)
+    word = get_random_word()
 
-guess = input("Enter a single letter: ")
+    guess = guess_a_letter()
 
-if len(guess) == 1 & guess.isalpha():
-    print("Good guess!")
-else:
-    print("Oops! That is not a valid input.")
+    check_input_is_valid(guess)
+
+
+def get_random_word():
+    return random.choice(word_list)
+
+
+def guess_a_letter():
+    return input("Enter a single letter: ")
+
+
+def check_input_is_valid(input):
+    if len(input) == 1 & input.isalpha():
+        print("Good guess!")
+    else:
+        print("Oops! That is not a valid input.")
+
+
+play_hangman()
