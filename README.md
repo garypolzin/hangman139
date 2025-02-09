@@ -1,11 +1,11 @@
 # Hangman
 
 ## Table of Contents
-1. Description
-2. Installation
-3. Usage
-4. File Structure
-5. License
+1. [Description](#description)
+2. [Installation](#installation)
+3. [Usage](#usage)
+4. [File Structure](#file-structure)
+5. [License](#license)
 
 ## Description
 Hangman is a classic game in which a player thinks of a word and the other player tries to guess that word within a certain amount of attempts.
