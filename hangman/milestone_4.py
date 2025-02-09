@@ -29,6 +29,10 @@ class Hangman:
         """
         Checks if the guessed letter is in the word and updates the game state accordingly.
 
+        The guess is initially converted to lower case.
+        If the guess is in the word, the user is informed, the letter is added to the guessed word and the number of letters still to guess is reduced by one.
+        If the guess is not in the word, the user is informed and the number of lives left is reduced by one.
+
         Args:
             guess (str): The letter guessed by the player.
 
