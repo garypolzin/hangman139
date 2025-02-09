@@ -3,6 +3,21 @@ import random
 
 class Hangman:
     def __init__(self, word_list, num_lives=5):
+        """
+        Initialises the Hangman game with a random word from the word list and sets up the game state.
+
+        Args:
+            word_list (list): List of words to choose from.
+            num_lives (int, optional): Number of lives the player has. Defaults to 5.
+
+        Attributes:
+            word (str): The word to be guessed, chosen randomly from the word list.
+            word_guessed (list): List representing the current state of the guessed word with underscores for unguessed letters.
+            num_letters (int): Number of unique letters in the word that need to be guessed.
+            num_lives (int): Number of lives the player has.
+            word_list (list): List of words to choose from.
+            list_of_guesses (list): List of letters that have been guessed.
+        """
         self.word: str = random.choice(word_list)
         self.word_guessed: list = ["_" for letter in list(self.word)]
         self.num_letters: int = len(set(self.word) - set(self.word_guessed))
@@ -11,14 +26,33 @@ class Hangman:
         self.list_of_guesses: list = []
 
     def check_guess(self, guess: str) -> None:
+        """
+        Checks if the guessed letter is in the word and updates the game state accordingly.
+
+        Args:
+            guess (str): The letter guessed by the player.
+
+        Returns:
+            None
+        """
         guess = guess.lower()
 
         if guess in self.word:
             print(f"Good guess! {guess} is in the word.")
+            for i, letter in enumerate(self.word):
+                if letter == guess:
+                    self.word_guessed[i] = guess
+            self.num_letters = self.num_letters - 1
         else:
             print(f"Sorry, {guess} is not in the word. Try again.")
 
     def ask_for_input(self):
+        """
+        Continuously prompts the player to enter a guess and processes the guess.
+
+        Returns:
+            None
+        """
         while True:
             guess = input("Enter a single letter: ")
 
